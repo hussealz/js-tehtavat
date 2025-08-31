@@ -1,0 +1,35 @@
+Write a program that prompts the user for a temperature in Celsius and converts it to Fahrenheit and Kelvin. The program should then display the converted temperatures in an HTML document.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Temperature Converter</title>
+</head>
+<body>
+  <h1>Temperature Converter</h1>
+  <div id="result"></div>
+
+  <script>
+    // Prompt the user for Celsius (accepts comma or dot as decimal separator)
+    const input = prompt("Enter temperature in Celsius (°C):");
+    const celsius = input ? parseFloat(input.replace(",", ".")) : NaN;
+
+    if (isNaN(celsius)) {
+      document.getElementById("result").textContent =
+        "Invalid input. Please reload the page and enter a number.";
+    } else {
+      // Convert: F = (C * 9/5) + 32,  K = C + 273.15
+      const fahrenheit = (celsius * 9/5) + 32;
+      const kelvin = celsius + 273.15;
+
+      // Show results in the HTML document
+      document.getElementById("result").innerHTML = `
+        <p>Celsius: <strong>${celsius.toFixed(2)} °C</strong></p>
+        <p>Fahrenheit: <strong>${fahrenheit.toFixed(2)} °F</strong></p>
+        <p>Kelvin: <strong>${kelvin.toFixed(2)} K</strong></p>
+      `;
+    }
+  </script>
+</body>
+</html>
