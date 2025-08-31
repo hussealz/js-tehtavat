@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>Tehtävä 3 – Parilliset luvut</title>
+</head>
+<body>
+  <h1>Tehtävä 3: Syötä lukuja ja näytä vain parilliset</h1>
+  <div id="out"></div>
+
+  <script>
+    const outEl = document.getElementById('out');
+    const print = (html) => outEl.innerHTML += html + "<br>";
+
+    const values = [];
+    // Kysy kunnes käyttäjä kirjoittaa 'done'
+    while (true) {
+      const input = prompt("Anna luku (tai 'done' lopettaaksesi):");
+      if (input === null) { // cancel
+        break;
+      }
+      const trimmed = input.trim().toLowerCase();
+      if (trimmed === 'done' || trimmed === 'valmis') {
+        break;
+      }
+      const num = Number(trimmed);
+      if (!Number.isNaN(num)) {
+        values.push(num);
+      }
+    }
+
+    // Käy läpi for...of ja kerää parilliset
+    const evens = [];
+    for (const n of values) {
+      if (n % 2 === 0) {
+        evens.push(n);
+      }
+    }
+
+    if (evens.length > 0) {
+      print(`Parilliset luvut: ${evens.join(', ')}`);
+    } else {
+      print('Parilliset luvut: ei yhtään');
+    }
+
+    print('<em>Ohjelma päättyi.</em>');
+  </script>
+</body>
+</html>

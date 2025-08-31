@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>Tehtävä 6 – Elokuva-arviot</title>
+  <style>
+    table { border-collapse: collapse; }
+    td, th { border: 1px solid #000; padding: 6px 10px; }
+  </style>
+</head>
+<body>
+  <h1>Tehtävä 6: Elokuva-arviot (oliot)</h1>
+  <div id="out"></div>
+
+  <script>
+    const outEl = document.getElementById('out');
+    const print = (html) => outEl.innerHTML += html;
+
+    const movies = [];
+    // Montako elokuvaa?
+    const countStr = prompt("Kuinka monta elokuvaa haluat arvioida?");
+    const count = Number(countStr);
+
+    if (Number.isFinite(count) && count > 0) {
+      for (let i = 1; i <= count; i++) {
+        const title = prompt(`Elokuva ${i}/${count} – nimi:`) || "(nimetön)";
+        let rating = Number(prompt(`Elokuva ${i}/${count} – arvosana (1–5):`));
+        if (!Number.isFinite(rating) || rating < 1) rating = 1;
+        if (rating > 5) rating = 5;
+
+        // Olio: { title, rating }
+        const movie = { title: title.trim(), rating };
+        movies.push(movie);
+      }
+
+      // Lajittele parhaasta huonoimpaan
+      movies.sort((a, b) => b.rating - a.rating);
+
+      // Paras on ensimmäinen
+      const best = movies[0];
+
+      // Näytä taulukkona
+      let html = "<h2>Lajiteltu lista (parhaasta heikoimpaan)</h2>";
+      html += "<table><thead><tr><th>#</th><th>Elokuva</th><th>Arvosana</th></tr></thead><tbody>";
+      movies.forEach((m, idx) => {
+        html += `<tr><td>${idx + 1}</td><td>${m.title}</td><td>${m.rating}</td></tr>`;
+      });
+      html += "</tbody></table>";
+
+      html += `<h3>Korkeimmin arvostettu elokuva</h3>`;
+      html += `<p><strong>${best.title}</strong> (arvosana: ${best.rating})</p>`;
+
+      print(html);
+    } else {
+      print("<p>Virheellinen lukumäärä. Päivitä sivu ja yritä uudelleen.</p>");
+    }
+  </script>
+</body>
+</html>

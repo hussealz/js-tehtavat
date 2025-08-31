@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>Tehtävä 1 – Taulukon perusteet</title>
+</head>
+<body>
+  <h1>Tehtävä 1: Taulukon perusteet</h1>
+  <p>Avaa selaimen konsoli (F12) nähdäksesi tulokset.</p>
+
+  <script>
+    // Hedelmätaulukko
+    const fruits = ["apple", "banana", "orange", "grape", "kiwi"];
+
+    console.log('Hedelmät:', fruits);
+    console.log('Hedelmiä yhteensä:', fruits.length);
+    console.log('Alkio indeksissä 2:', fruits[2]);
+    console.log('Viimeinen alkio:', fruits[fruits.length - 1]);
+
+    // Tyhjä vihannestaulukko
+    const vegetables = [];
+
+    // Pyydetään 3 vihannesta
+    for (let i = 1; i <= 3; i++) {
+      const v = prompt(`Anna vihannes ${i}/3:`);
+      if (v !== null && v.trim() !== "") {
+        vegetables.push(v.trim());
+      } else {
+        vegetables.push("(tyhjä)");
+      }
+    }
+
+    console.log('Vihannekset:', vegetables);
+    console.log('Vihanneksia yhteensä:', vegetables.length);
+  </script>
+</body>
+</html>

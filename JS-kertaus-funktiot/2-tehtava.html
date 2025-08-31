@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>Tehtävä 2 – Taulukko-operaatioita</title>
+</head>
+<body>
+  <h1>Tehtävä 2: Taulukko-operaatioita (push, includes, pop, sort)</h1>
+  <div id="out"></div>
+
+  <script>
+    const outEl = document.getElementById('out');
+    const print = (html) => outEl.innerHTML += html + "<br>";
+
+    const numbers = [];
+
+    // Pyydä 5 numeroa
+    for (let i = 1; i <= 5; i++) {
+      const input = prompt(`Anna numero ${i}/5:`);
+      const n = Number(input);
+      numbers.push(n);
+    }
+
+    console.log('Numerot:', numbers);
+    print(`Numerot: [${numbers.join(', ')}]`);
+
+    // Kysy haettava numero ja tarkista includes
+    const searchInput = prompt('Anna numero, jota etsitään:');
+    const searchNum = Number(searchInput);
+    const found = numbers.includes(searchNum);
+
+    if (found) {
+      print(`Numero ${searchNum} löytyi taulukosta.`);
+    } else {
+      print(`Numero ${searchNum} ei löytynyt taulukosta.`);
+    }
+
+    // Poista viimeinen
+    const removed = numbers.pop();
+    print(`Poistettu viimeinen numero: ${removed}`);
+    print(`Päivitetyt numerot: [${numbers.join(', ')}]`);
+
+    // Järjestä nousevasti (numeerinen vertailu)
+    const sorted = [...numbers].sort((a, b) => a - b);
+    print(`Järjestetty (nouseva): [${sorted.join(', ')}]`);
+
+    // Tulostetaan myös konsoliin
+    console.log('Päivitetyt numerot:', numbers);
+    console.log('Järjestetty (nouseva):', sorted);
+  </script>
+</body>
+</html>

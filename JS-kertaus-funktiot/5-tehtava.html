@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>Tehtävä 5 – sortArray (asc/desc)</title>
+</head>
+<body>
+  <h1>Tehtävä 5: sortArray (nouseva tai laskeva)</h1>
+  <p>Avaa selaimen konsoli (F12) nähdäksesi tulokset.</p>
+
+  <script>
+    function sortArray(numbers, order = "asc") {
+      const copy = [...numbers];
+      if (order === "desc") {
+        return copy.sort((a, b) => b - a);
+      } else {
+        return copy.sort((a, b) => a - b);
+      }
+    }
+
+    const nums = [5, 2, 8, 1, 9];
+
+    console.log('Alkuperäinen:', nums);
+    console.log('Järjestetty asc:', sortArray(nums, "asc"));   // [1,2,5,8,9]
+    console.log('Järjestetty desc:', sortArray(nums, "desc")); // [9,8,5,2,1]
+  </script>
+</body>
+</html>
