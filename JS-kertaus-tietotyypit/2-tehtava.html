@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>Tehtävä 2 – Etäisyys kahden pisteen välillä</title>
+</head>
+<body>
+  <h1>Tehtävä 2: Etäisyys kahden pisteen välillä</h1>
+  <div id="output"></div>
+
+  <script>
+    let x1 = parseFloat(prompt("Anna pisteen 1 x-koordinaatti:"));
+    let y1 = parseFloat(prompt("Anna pisteen 1 y-koordinaatti:"));
+    let x2 = parseFloat(prompt("Anna pisteen 2 x-koordinaatti:"));
+    let y2 = parseFloat(prompt("Anna pisteen 2 y-koordinaatti:"));
+
+    let distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+
+    document.getElementById("output").innerHTML =
+      `Pisteiden (${x1}, ${y1}) ja (${x2}, ${y2}) välinen etäisyys on <b>${distance.toFixed(2)}</b>`;
+  </script>
+</body>
+</html>

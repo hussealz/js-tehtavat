@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>Tehtävä 6 – Kertotaulu</title>
+</head>
+<body>
+  <h1>Tehtävä 6: Kertotaulu</h1>
+  <div id="output"></div>
+
+  <script>
+    let num = parseInt(prompt("Anna positiivinen kokonaisluku:"));
+    let tauluHTML = "<table border='1' cellpadding='5'>";
+
+    for (let i = 1; i <= num; i++) {
+      tauluHTML += "<tr>";
+      for (let j = 1; j <= num; j++) {
+        tauluHTML += `<td>${i * j}</td>`;
+      }
+      tauluHTML += "</tr>";
+    }
+    tauluHTML += "</table>";
+
+    document.getElementById("output").innerHTML = tauluHTML;
+  </script>
+</body>
+</html>

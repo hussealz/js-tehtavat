@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>Tehtävä 5 – Luonnollisten lukujen summa</title>
+</head>
+<body>
+  <h1>Tehtävä 5: Luonnollisten lukujen summa</h1>
+  <div id="output"></div>
+
+  <script>
+    let n = parseInt(prompt("Anna positiivinen kokonaisluku:"));
+    let summa = 0;
+
+    for (let i = 1; i <= n; i++) {
+      summa += i;
+    }
+
+    document.getElementById("output").innerHTML =
+      `Lukujen 1–${n} summa on <b>${summa}</b>`;
+  </script>
+</body>
+</html>

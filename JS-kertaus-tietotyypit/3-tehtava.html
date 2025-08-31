@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <title>Tehtävä 3 – Kolmion tyyppi</title>
+</head>
+<body>
+  <h1>Tehtävä 3: Kolmion tyyppi</h1>
+  <div id="output"></div>
+
+  <script>
+    let a = parseFloat(prompt("Anna sivun a pituus:"));
+    let b = parseFloat(prompt("Anna sivun b pituus:"));
+    let c = parseFloat(prompt("Anna sivun c pituus:"));
+
+    let tyyppi = "";
+
+    if (a === b && b === c) {
+      tyyppi = "Tasasivuinen";
+    } else if (a === b || a === c || b === c) {
+      tyyppi = "Tasakylkinen";
+    } else if (!(a === b) && !(b === c) && !(a === c)) {
+      tyyppi = "Epäsäännöllinen (scalene)";
+    }
+
+    document.getElementById("output").innerHTML =
+      `Kolmio on <b>${tyyppi}</b>`;
+  </script>
+</body>
+</html>
