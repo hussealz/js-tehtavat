@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant App - Advanced JS 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .filter-section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .filter-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .filter-btn.active {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .filter-btn:not(.active) {
+            background-color: #e9ecef;
+            color: #495057;
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background-color: #dee2e6;
+        }
+        
+        .filter-info {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: black;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .error {
+            color: red;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Restaurant App - Advanced JS 2</h1>
+    
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <h3>Filter Restaurants</h3>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Restaurants</button>
+            <button class="filter-btn" data-filter="sodexho">Sodexho</button>
+            <button class="filter-btn" data-filter="compass">Compass</button>
+        </div>
+        <div class="filter-info" id="filterInfo">Showing all restaurants</div>
+    </div>
+    
+    <div id="loading" class="loading">Loading restaurants...</div>
+    <div id="error" class="error" style="display: none;"></div>
+    <div id="noResults" class="no-results" style="display: none;">No restaurants found for the selected filter.</div>
+    
+    <table id="restaurantTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Company</th>
+            </tr>
+        </thead>
+        <tbody id="restaurantTableBody">
+        </tbody>
+    </table>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
